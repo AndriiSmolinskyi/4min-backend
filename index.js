@@ -7,7 +7,7 @@ const PORT = process.env.PORT || 8080;
 const app = express();
 
 app.use(cors({
-    origin: 'https://andriismolinskyi.github.io',
+    origin: '*',
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
     optionsSuccessStatus: 204,
