@@ -9,7 +9,7 @@
   "routes": [
     {
       "src": "/(.*)",
-      "methods": ["OPTIONS", "GET", "POST", "PUT", "DELETE"], // Додайте всі методи, які ви хочете підтримувати
+      "methods": ["OPTIONS", "GET", "POST", "PUT", "DELETE"], 
       "headers": {
         "Access-Control-Allow-Origin": "https://4min-frontend.vercel.app",
         "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE",
