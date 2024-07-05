@@ -1,7 +1,6 @@
 const db = require('../db')
 const uuid = require('uuid');
 const nodemailer = require('nodemailer');
-const emailConfig = require('./email');
 
 class UserConroller{
 
@@ -224,8 +223,8 @@ class UserConroller{
                 const transporter = nodemailer.createTransport({ 
                     host: 'smtp-mail.outlook.com', 
                     auth: {
-                        user: emailConfig.emailName,
-                        pass: emailConfig.emailPass
+                        user: "fourmin-it@outlook.com",
+                        pass: "19911991.Ukraine"
                     },
                     secure: false, 
                     requireTLS: true,
