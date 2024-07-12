@@ -224,8 +224,8 @@ class UserConroller{
                 const transporter = nodemailer.createTransport({ 
                     host: 'smtp-mail.outlook.com', 
                     auth: {
-                        user: emailInfo.userName,
-                        pass: emailInfo.userPass
+                        user: process.env.emailName,
+                        pass: process.env.emailPass
                     },
                     secure: false, 
                     requireTLS: true,
