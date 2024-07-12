@@ -1,7 +1,6 @@
 const db = require('../db')
 const uuid = require('uuid');
 const nodemailer = require('nodemailer');
-const emailInfo = require('./email');
 
 class UserConroller{
 
