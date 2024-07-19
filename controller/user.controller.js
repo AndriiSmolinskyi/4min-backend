@@ -1,6 +1,7 @@
 const db = require('../db')
 const uuid = require('uuid');
 const nodemailer = require('nodemailer');
+require('dotenv').config();
 
 class UserConroller{
 
@@ -265,8 +266,8 @@ class UserConroller{
                                 'UPDATE users SET reset_code = null WHERE id = $1',
                                 [userId.rows[0].id]
                             );
-                            console.log('Код скидання пароля видалено після 30 секунд');
-                        }, 150000);
+                            console.log('Код скидання пароля видалено після 5 хвилин');
+                        }, 300000);
                     }
                 });
 
