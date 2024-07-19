@@ -29,8 +29,8 @@ app.get('/test-smtp', async (req, res) => {
         host: 'smtp-mail.outlook.com',
         port: 587, // або 25
         auth: {
-            user: process.env.emailName,
-            pass: process.env.emailPass
+            user: process.env.EMAIL_NAME,
+            pass: process.env.EMAIL_PASS
         },
         secure: false,
         requireTLS: true,
