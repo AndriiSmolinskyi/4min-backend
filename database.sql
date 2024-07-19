@@ -12,7 +12,7 @@ CREATE TABLE users (
     email VARCHAR(255),
     password VARCHAR(255),
     token VARCHAR(255),
-    phone VARCHAR(255)
+    phone VARCHAR(255),
     reset_code VARCHAR(255)
 );
 
