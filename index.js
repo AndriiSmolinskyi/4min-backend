@@ -3,6 +3,7 @@ const cors = require('cors')
 const userRouter = require('./routes/user.routes')
 const postRouter = require('./routes/post.router')
 const PORT = process.env.PORT || 8080;
+const nodemailer = require('nodemailer');
 
 const app = express();
 
@@ -20,6 +21,29 @@ app.use('/api', postRouter)
 
 app.get('/', (req, res) => {
     res.send('Welcome to my API!');
+});
+
+app.get('/test-smtp', async (req, res) => {
+    const transporter = nodemailer.createTransport({
+        host: 'smtp-mail.outlook.com',
+        port: 587, // або 25
+        auth: {
+            user: process.env.emailName,
+            pass: process.env.emailPass
+        },
+        secure: false,
+        requireTLS: true,
+    });
+
+    transporter.verify(function(error, success) {
+        if (error) {
+            console.log('Помилка підключення:', error);
+            res.status(500).send('Помилка підключення до SMTP-сервера');
+        } else {
+            console.log('Підключення до SMTP-сервера успішне');
+            res.send('Підключення до SMTP-сервера успішне');
+        }
+    });
 });
 
 app.listen(PORT, () => console.log(`server started on port ${PORT}`));
