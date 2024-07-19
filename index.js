@@ -23,6 +23,7 @@ app.get('/', (req, res) => {
     res.send('Welcome to my API!');
 });
 
+// Додавання маршруту для тестового запиту до SMTP-сервера
 app.get('/test-smtp', async (req, res) => {
     const transporter = nodemailer.createTransport({
         host: 'smtp-mail.outlook.com',
@@ -38,7 +39,7 @@ app.get('/test-smtp', async (req, res) => {
     transporter.verify(function(error, success) {
         if (error) {
             console.log('Помилка підключення:', error);
-            res.status(500).send('Помилка підключення до SMTP-сервера');
+            res.status(500).json({ error: 'Помилка підключення до SMTP-сервера', details: error });
         } else {
             console.log('Підключення до SMTP-сервера успішне');
             res.send('Підключення до SMTP-сервера успішне');
